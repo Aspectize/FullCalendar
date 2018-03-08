@@ -84,7 +84,7 @@ Aspectize.Extend("FullCalendar", {
                 m += (evt.end ? evt.end.local().toString() : 'no end') + ' - ';
                 m += delta.toString();
 
-                alert(m);
+                //alert(m);
 
                 Aspectize.UiExtensions.ChangeProperty(eventCell, 'End', end);
                 Aspectize.UiExtensions.Notify(eventCell, 'OnEventChanged', { Event: evt, CancelChange: revertFunc });
