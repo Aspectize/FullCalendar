@@ -7,7 +7,7 @@ Aspectize.Extend("FullCalendar", {
 
     Binding: 'GridBinding',
 
-    Properties: { EditMode: false, Locale: 'fr', View: 'month', LeftButtons: 'prev,next today', CenterButtons: 'title', RightButtons: 'month,agendaWeek,agendaDay', WeekEnds: true, WeekNumbers: false },
+    Properties: { EditMode: false, Locale: 'fr', View: 'month', LeftButtons: 'prev,next today', CenterButtons: 'title', RightButtons: 'month,agendaWeek,agendaDay listMonth', WeekEnds: true, WeekNumbers: false },
     Events: ['OnNewEvent', 'OnNeedEvents'],
 
     Init: function (elem, controlInfo) {
