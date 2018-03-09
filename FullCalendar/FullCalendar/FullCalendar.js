@@ -7,7 +7,7 @@ Aspectize.Extend("FullCalendar", {
 
     Binding: 'GridBinding',
 
-    Properties: { EditMode: false, Locale: 'fr', View: 'month', LeftButtons: 'prev,next today', CenterButtons: 'title', RightButtons: 'month,agendaWeek,agendaDay listMonth', WeekEnds: true, WeekNumbers: false },
+    Properties: { EditMode: false, Locale: 'fr', View: 'month', LeftButtons: 'prev,next today', CenterButtons: 'title', RightButtons: 'month,agendaWeek,agendaDay listMonth', WeekEnds: true, WeekNumbers: false, BusinessHours:'08:30-18:30' },
     Events: ['OnNewEvent', 'OnNeedEvents'],
 
     Init: function (elem, controlInfo) {
@@ -31,6 +31,21 @@ Aspectize.Extend("FullCalendar", {
         //    // Aspectize.UiExtensions.Notify(elem, 'OnCalendarClick', { Date: moment.local().toDate() });
         //}
 
+        var weekEnds = Aspectize.UiExtensions.GetProperty(elem, 'WeekEnds');
+        var businessHours = Aspectize.UiExtensions.GetProperty(elem, 'BusinessHours');
+
+        var bh = false;
+        var rxBH = /(\d{2}:\d{2})-(\d{2}:\d{2})/;
+        if (rxBH.test(businessHours)) {
+            
+            var parts = businessHours.split('-');
+            bh = {
+                dow: weekEnds ? [0, 1, 2, 3, 4, 5, 6] : [1, 2, 3, 4, 5],
+                start: parts[0],
+                end: parts[1]
+            };
+        }
+
         var fcOptions = {
             defaultView: Aspectize.UiExtensions.GetProperty(elem, 'View'),
             header: hb,
@@ -44,7 +59,9 @@ Aspectize.Extend("FullCalendar", {
             nowIndicator: true,
             height: 'parent',
 
-            weekends: Aspectize.UiExtensions.GetProperty(elem, 'WeekEnds'),
+            businessHours: bh,
+
+            weekends: weekEnds,
             weekNumbers: Aspectize.UiExtensions.GetProperty(elem, 'WeekNumbers'),
             weekNumbersWithinDays: true,
             weekNumberCalculation: 'ISO'
@@ -83,8 +100,6 @@ Aspectize.Extend("FullCalendar", {
 
                 m += (evt.end ? evt.end.local().toString() : 'no end') + ' - ';
                 m += delta.toString();
-
-                //alert(m);
 
                 Aspectize.UiExtensions.ChangeProperty(eventCell, 'End', end);
                 Aspectize.UiExtensions.Notify(eventCell, 'OnEventChanged', { Event: evt, CancelChange: revertFunc });
