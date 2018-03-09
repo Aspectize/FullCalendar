@@ -1,5 +1,5 @@
 # FullCalendar
-Aspectize extension for the FullCalendar JavaScript event calendar component
+Aspectize extension for the FullCalendar JavaScript event calendar component https://fullcalendar.io/
 
 ## 1 - Download
 
@@ -44,7 +44,14 @@ In your configuration view file
 vMyViewCalendar.MyCalendar.BindGrid(aas.Data.MainData.MyEvent);
 
 The following properties are bindable:
-- 
+- EditMode: if true, event can be modified or added with mouse. Default is false.
+- Locale: define the moment local (see https://github.com/moment/moment/tree/develop/locale).
+- View: define the defaultView of Calendar. Default is month.
+- LeftButtons: define the header left buttons. Default is prev,next today.
+- CenterButtons: define the header center buttons. Default is title.
+- RightButtons: define the header right buttons. Default is month,agendaWeek,agendaDay listMonth.
+- WeekEnds: if trus, display Saturdays and Sundays. Default is true.
+- WeekNumbers: if true, display Week Numbers. Default is true.
 
 
 
