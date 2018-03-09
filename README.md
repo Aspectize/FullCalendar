@@ -50,7 +50,7 @@ The following properties are bindable:
 - LeftButtons: define the header left buttons. Default is prev,next today.
 - CenterButtons: define the header center buttons. Default is title.
 - RightButtons: define the header right buttons. Default is month,agendaWeek,agendaDay listMonth.
-- WeekEnds: if trus, display Saturdays and Sundays. Default is true.
+- WeekEnds: if true, display Saturdays and Sundays. Default is true.
 - WeekNumbers: if true, display Week Numbers. Default is true.
 
 
