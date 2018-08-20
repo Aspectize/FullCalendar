@@ -306,7 +306,14 @@ Aspectize.Extend("CalendarEvent", {
 
                             evt[f] = moment(v);
 
-                        } else evt[f] = v;
+                        } else {
+
+                            if ((evt[f].constructor === Array) && evt[f].length) {
+
+                                evt[f][0] = v;
+
+                            } else evt[f] = v;
+                        }
                     }
                 }
             }
