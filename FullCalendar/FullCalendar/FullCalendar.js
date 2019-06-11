@@ -70,7 +70,10 @@ Aspectize.Extend("FullCalendar", {
 
             var span = elem[0].querySelector('.fc-title');
 
-            span.innerHTML = evt.title;
+            if (span) {
+
+                span.innerHTML = evt.title;
+            }
         };
 
         function fSelect(start, end) {
