@@ -7,7 +7,7 @@ Aspectize.Extend("FullCalendar", {
 
     Binding: 'GridBinding',
 
-    Properties: { EditMode: false, Locale: 'fr', View: 'month', LeftButtons: 'prev,next today', CenterButtons: 'title', RightButtons: 'month,agendaWeek,agendaDay listMonth', WeekEnds: true, WeekNumbers: false, BusinessHours: '08:30-18:30' },
+    Properties: { EditMode: false, Locale: 'fr', View: 'month', LeftButtons: 'prev,next today', CenterButtons: 'title', RightButtons: 'month,agendaWeek,agendaDay listMonth', WeekEnds: true, WeekNumbers: false, BusinessHours: '08:30-18:30', MinTime: '00:00:00', MaxTime: '24:00:00' },
     Events: ['OnPropertyChanged', 'OnNewEvent', 'OnNeedEvents'],
 
     Init: function (elem, controlInfo) {
@@ -55,6 +55,9 @@ Aspectize.Extend("FullCalendar", {
             height: 'parent',
 
             businessHours: bh,
+
+            minTime: Aspectize.UiExtensions.GetProperty(elem, 'MinTime'),
+            maxTime: Aspectize.UiExtensions.GetProperty(elem, 'MaxTime'),
 
             weekends: weekEnds,
             weekNumbers: Aspectize.UiExtensions.GetProperty(elem, 'WeekNumbers'),
@@ -255,6 +258,9 @@ Aspectize.Extend("FullCalendar", {
                             };
                         }
                     } break;
+
+                    case 'MinTime': newOptions.minTime = v; break;
+                    case 'MaxTime': newOptions.maxTime = v; break;
                 }
             }
 
