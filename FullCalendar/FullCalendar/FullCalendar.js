@@ -295,44 +295,47 @@ Aspectize.Extend("CalendarEvent", {
 
             var evt = events[0];
 
-            for (var p in arg) {
+            if (evt) {
 
-                var v = arg[p];
-                var f = map[p];
+                for (var p in arg) {
 
-                if (f) {
+                    var v = arg[p];
+                    var f = map[p];
 
-                    if (f.constructor === Array) {
+                    if (f) {
 
-                        for (var n = 0; n < f.length; n++) {
+                        if (f.constructor === Array) {
 
-                            var af = f[n];
+                            for (var n = 0; n < f.length; n++) {
 
-                            if (af in evt) {
+                                var af = f[n];
 
-                                evt[af] = v;
+                                if (af in evt) {
+
+                                    evt[af] = v;
+                                }
                             }
-                        }
 
-                    } else if (f in evt) {
+                        } else if (f in evt) {
 
-                        if (v.constructor === Date) {
+                            if (v.constructor === Date) {
 
-                            evt[f] = moment(v);
+                                evt[f] = moment(v);
 
-                        } else {
+                            } else {
 
-                            if ((evt[f].constructor === Array) && evt[f].length) {
+                                if ((evt[f].constructor === Array) && evt[f].length) {
 
-                                evt[f][0] = v;
+                                    evt[f][0] = v;
 
-                            } else evt[f] = v;
+                                } else evt[f] = v;
+                            }
                         }
                     }
                 }
-            }
 
-            fcObj.fullCalendar('updateEvent', evt);
+                fcObj.fullCalendar('updateEvent', evt);
+            }
         });
     }
 });
