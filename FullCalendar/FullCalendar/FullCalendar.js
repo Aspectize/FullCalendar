@@ -61,6 +61,14 @@ Aspectize.Extend("FullCalendar", {
             weekNumbersWithinDays: true,
             weekNumberCalculation: 'ISO'
         };
+        
+
+        fcOptions.eventRender = function (evt, elem) {
+
+            var span = elem[0].querySelector('.fc-title');
+
+            span.innerHTML = evt.title;
+        };
 
         function fSelect(start, end) {
 
