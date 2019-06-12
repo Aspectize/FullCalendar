@@ -133,7 +133,7 @@ Aspectize.Extend("FullCalendar", {
             var eventCell = elem.aasEventCells[evt.id];
             Aspectize.UiExtensions.SetCurrent(elem, evt.id);
 
-            Aspectize.UiExtensions.Notify(eventCell, 'OnEventClick', { Id: evt.id, Event: evt });
+            Aspectize.UiExtensions.Notify(eventCell, 'OnEventClick', { Id: evt.id, Event: evt, DomEvent: jsEvent });
         };
 
         fcOptions.eventMouseover = function (evt, jsEvent, view) {
