@@ -247,6 +247,7 @@ Aspectize.Extend("FullCalendar", {
                         newOptions.header = header;
                     } break;
 
+                    case 'View': fcObj.fullCalendar('changeView', v); /*newOptions.defaultView = v;*/ break;
                     case 'WeekEnds': newOptions.weekends = v; break;
                     case 'WeekNumbers': newOptions.weekNumbers = v; break;
                     case 'BusinessHours': {
