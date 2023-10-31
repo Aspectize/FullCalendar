@@ -1,0 +1,8 @@
+﻿    <!-- FullCalendar -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.min.js'></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/fullcalendar.min.css' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.2/locale-all.js'></script>
+
+
+    <div aas-type="FullCalendar.FullCalendar" aas-name="XXX"></div>

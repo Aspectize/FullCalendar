@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="FullCalendar.js" />
+    <Content Include="Usage.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AspectizeCore">
