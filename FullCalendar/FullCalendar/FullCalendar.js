@@ -62,7 +62,13 @@ Aspectize.Extend("FullCalendar", {
             weekends: weekEnds,
             weekNumbers: Aspectize.UiExtensions.GetProperty(elem, 'WeekNumbers'),
             weekNumbersWithinDays: true,
-            weekNumberCalculation: 'ISO'
+            weekNumberCalculation: 'ISO',
+            buttonIcons: {
+                prev: 'chevron-left',
+                next: 'chevron-right',
+                prevYear: 'chevrons-left',
+                nextYear: 'chevrons-right'
+            }
         };
         
 
